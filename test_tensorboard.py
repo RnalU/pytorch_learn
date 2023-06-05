@@ -1,12 +1,12 @@
 from torch.utils.tensorboard import SummaryWriter
-from day1.read_data import MyDataSet
+from read_data import MyDataSet
 
 # 图片数据读取入口
-root_path = "../Data_set/hymenoptera_data/train"
+root_path = "Data_set/hymenoptera_data/train"
 label_path = "ants"
 
 dataReader = MyDataSet(root_path, label_path)
-writer = SummaryWriter("../logs")
+writer = SummaryWriter("logs")
 
 for img_idx in range(len(dataReader)):
     img, label = dataReader[img_idx]

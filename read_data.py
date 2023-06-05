@@ -28,7 +28,7 @@ class MyDataSet(Dataset):
 
 
 if __name__ == '__main__':
-    root_path = "../Data_set/hymenoptera_data/train"
+    root_path = "Data_set/hymenoptera_data/train"
     label_path = "ants"
 
     MyDataSET = MyDataSet(root_path, label_path)

@@ -23,6 +23,6 @@ def spawn_train_txt(img_path, aim_path):
 
 
 if __name__ == '__main__':
-    img_path = "../Data_set/hymenoptera_data/val/ants"
-    aim_path = "../Data_set/hymenoptera_data/train1"
+    img_path = "Data_set/hymenoptera_data/val/ants"
+    aim_path = "Data_set/hymenoptera_data/train1"
     spawn_train_txt(img_path, aim_path)
