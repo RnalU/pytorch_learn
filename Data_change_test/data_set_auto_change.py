@@ -56,6 +56,17 @@ def create_voc_xml(image_path, image_size, annotations):
         xmax.text = str(annotation["points"][2][0])
         ymax = ET.SubElement(bndbox, "ymax")
         ymax.text = str(annotation["points"][2][1])
+        # 判断大小的正确性
+        if int(xmin.text) > int(xmax.text):
+            temp = xmin.text
+            xmin.text = xmax.text
+            xmax.text = temp
+
+        if int(ymin.text) > int(ymax.text):
+            temp = ymin.text
+            ymin.text = ymax.text
+            ymax.text = temp
+
 
     # 将XML元素进行格式化，添加缩进
     xml_string = prettify(root)
@@ -71,6 +82,11 @@ def create_voc_xml(image_path, image_size, annotations):
 # image_size = (4000, 3000, 3)
 # annotations = '[{"transcription": "119", "points": [[637, 1450], [956, 1450], [956, 1666], [637, 1666]], "difficult": False},{"transcription": "120", "points": [[1672, 1369], [1998, 1369], [1998, 1576], [1672, 1576]], "difficult": False},{"transcription": "110", "points": [[2785, 1724], [3275, 1724], [3275, 2008], [2785, 2008]], "difficult": False}]'
 # print(eval(annotations))
+# image_path = 'JPEGImage/IMG_20230603_233952.jpg'
+# image_size = (4000, 3000, 3)
+# false = False
+# annotations = '[{"transcription": "110", "points": [[2922, 1068], [3273, 1020], [3299, 1216], [2948, 1264]], "difficult": false}, {"transcription": "120", "points": [[1504, 1156], [1916, 1116], [1935, 1316], [1522, 1356]], "difficult": false}, {"transcription": "119", "points": [[722, 1642], [672, 1873], [480, 1715], [546, 1447]], "difficult": false}]'
+# create_voc_xml(image_path, image_size, eval(annotations))
 
 if __name__ == '__main__':
     # 创建VOC格式的XML数据集文件
