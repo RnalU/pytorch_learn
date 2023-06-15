@@ -1,3 +1,4 @@
+import os.path
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
@@ -72,8 +73,8 @@ def create_voc_xml(image_path, image_size, annotations):
     xml_string = prettify(root)
 
     # 保存为文件
-    xml_file_path = image_path.replace(".jpg", ".xml")
-    # xml_file_path = "C:\\Users\\Yymmcc\\paddlex_workspace\\Data_test\\number_test\\new_xml"
+    # xml_file_path = image_path.replace(".jpg", ".xml")
+    xml_file_path = os.path.join("number_test/Annotations", image_path.split("/")[-1].replace(".jpg", ".xml"))
     with open(xml_file_path, "w", encoding="utf-8") as xml_file:
         xml_file.write(xml_string)
 
@@ -92,7 +93,7 @@ if __name__ == '__main__':
     # 创建VOC格式的XML数据集文件
     image_size = (4000, 3000, 3)
     # label_file = open('Label.txt', 'r', encoding='GBK')
-    label_file = open('Label.txt', 'r', encoding='GBK')
+    label_file = open('number_dataset/Label.txt', 'r', encoding='GBK')
     false = False
     for line in label_file.readlines():
         image_path = line.split('\t')[0]

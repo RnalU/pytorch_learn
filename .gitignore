@@ -1,5 +1,12 @@
-/Data_change_test/test.xml
-Data_change_test/test.py
-Data_change_test/Label.txt
+/Data_change_test/number_dataset/test.xml
+Data_change_test/number_dataset/xml_change_sample.py
+Data_change_test/number_dataset/Label.txt
 Data_change_test/JPEGImage
 /Data_change_test/new/
+/Data_change_test/img_transform/img_input/
+/Data_change_test/img_transform/img_output/
+/Data_change_test/number_dataset/
+/logs/
+/Model_Sml/
+/VisualDL/log_dir/
+/Data_change_tools/img_transform/img_output_PIL/
